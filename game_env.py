@@ -11,18 +11,20 @@ class RockPaperScissor:
         self.wins_so_far = 0
         self.ties_so_far = 0
         self.total_plays = 0
+        self.full_actions = {'R':'Rock', 'P':'Paper', 'S':'Scissors'}
     
     def play_single_interactive_round(self):
         player_move = input('Enter Your Move:')
 
         if player_move == 'E':
             print(' <===== Final Summary For Computer =====> ')
-            print("Wins = {}, Lost = {}, Ties = {}, Total = {}".format(self.wins_so_far, \
+            print("Wins = {}, Lost = {}, Ties = {}, Total = {}\n".format(self.wins_so_far, \
                 self.total_plays-self.wins_so_far-self.ties_so_far, self.ties_so_far, self.total_plays))
             return
 
         elif player_move in ['R', 'P', 'S']:
             computer_move = self.agent.move()
+            print('You Played -> {} || Computer Played -> {}'.format(self.full_actions[player_move], self.full_actions[computer_move]))
             current_move_score = self.agent.update(computer_move, player_move)
             if current_move_score == 1:
                 self.wins_so_far += 1
@@ -61,7 +63,7 @@ class RockPaperScissor:
         self.ties_so_far += round_ties
         self.total_plays += len(data)
         
-        print("So far (Wins, Lost, Ties, Total_Games) = ({}, {}, {}, {})".format(self.wins_so_far, \
+        print("So far (Wins, Lost, Ties, Total_Games) = ({}, {}, {}, {})\n".format(self.wins_so_far, \
             self.total_plays-self.wins_so_far-self.ties_so_far, self.ties_so_far, self.total_plays))
 
     def make_string(self, current_score):
@@ -70,5 +72,5 @@ class RockPaperScissor:
             action = 'WON '
         elif current_score == 0:
             action = 'TIE '
-        return "Computer {}, So far (Wins, Lost, Ties, Total_Games) = ({}, {}, {}, {})".format(action, \
+        return "Computer {}, So far (Wins, Lost, Ties, Total_Games) = ({}, {}, {}, {})\n".format(action, \
             self.wins_so_far, self.total_plays-self.wins_so_far-self.ties_so_far, self.ties_so_far, self.total_plays)
