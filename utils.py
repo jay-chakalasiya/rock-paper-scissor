@@ -21,6 +21,7 @@ def parse_arguments():
     if args.agent not in ['random', 'bandit', 'markov']:
         raise Exception("Argument random can only holds values True or False")
 
+    args.input_data = None
     if args.fileinput:
         args.input_data = get_file_data(args.fileinput)
         if not args.input_data:
@@ -39,6 +40,8 @@ def get_file_data(filepath):
 
 
 def train(agent, training_data):
+    if not training_data:
+        return
     training_wins = 0
     training_ties = 0
     for player_move in training_data:
