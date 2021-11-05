@@ -19,7 +19,7 @@ def parse_arguments():
     args = parser.parse_args()
 
     if args.agent not in ['random', 'bandit', 'markov']:
-        raise Exception("Argument random can only holds values True or False")
+        raise Exception("Argument random can only holds values from [random, bandit, markov]")
 
     args.input_data = None
     if args.fileinput:
