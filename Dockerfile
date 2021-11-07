@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.6.15-slim-buster
 
 WORKDIR /rock-paper-scissor
 
