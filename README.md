@@ -2,13 +2,21 @@
 
 ## How to run
 
+### Run from source
+
 ```
 $ python main.py
 ```
 
-### Requirements
+#### Requirements
 - Python >= 3.6
 - numpy
+
+### Run from Docker image
+```
+$ dcoker pull jay-chakalasiya/rock-paper-scissor
+$ docker run -it jaychakalasiya/rock-paper-scissor
+```
 
 ## File Structure
 
